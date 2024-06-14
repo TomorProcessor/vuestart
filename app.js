@@ -20,6 +20,16 @@ const app = Vue.createApp({
         }
     },
     /**
+     * minden olyan esetben hívódnak, amikor a nevüknek megfelelő
+     * data változó értéke megváltozik, lehetnek egy paraméteresek
+     * is, amikor az új értéked adja csak át
+     */
+    watch: {
+        counter(newValue, oldValue) {
+            console.log('counter has changed, oldValue', oldValue, 'newValue', newValue);
+        }
+    },
+    /**
      * amennyiben html-ben hívva vannak, akkor minden egyes
      * újra renderelésnél lefutnak
      */
