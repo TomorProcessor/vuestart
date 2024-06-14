@@ -35,6 +35,11 @@ const app = Vue.createApp({
         },
         storeInput() {
             this.storedInputContent = this.inputContent;
+        },
+        reset() {
+            this.counter = 0;
+            this.inputContent = '';
+            this.storedInputContent = '';
         }
     }
 });
