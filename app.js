@@ -9,11 +9,20 @@ const app = Vue.createApp({
             storedInputContent: ''
         };
     },
+    /**
+     * csak akkor futnak le, ha az általuk használt változó
+     * értéke megváltozik, html-ben hívni tilos, értékként
+     * kell őket behivatkozni
+     */
     computed: {
         counterInBinary() {
             return this.counter.toString(2);
         }
     },
+    /**
+     * amennyiben html-ben hívva vannak, akkor minden egyes
+     * újra renderelésnél lefutnak
+     */
     methods: {
         testFunc() {
             /**
