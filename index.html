@@ -20,20 +20,20 @@
 <!--    {} csak nyitó/záró html tag-ek között működik, interpolation    -->
       <h2>{{ testValue }}</h2>
 <!--    value binding    -->
-      <p v-bind:class="nameOfClass">{{ testFunc() }}</p>
-        <button v-on:click='handleCounter("increase")'>Add</button>
-        <button v-on:click='handleCounter("decrease")'>Reduce</button>
-        <button v-on:click.right='handleCounter("decrease")'>Reduce</button>
+      <p :class="nameOfClass">{{ testFunc() }}</p>
+        <button @click='handleCounter("increase")'>Add</button>
+        <button @click='handleCounter("decrease")'>Reduce</button>
+        <button @click.right='handleCounter("decrease")'>Reduce</button>
         <p v-once>Initial value: {{ counter }}</p>
         <p>Result: {{ counter }}</p>
         <p>Result in binary: {{ counterInBinary }}</p>
-        <input type="text" v-model="inputContent" v-on:keyup.enter="storeInput"/>
+        <input type="text" v-model="inputContent" @keyup.enter="storeInput"/>
         <p>Content in the input: {{ inputContent }}</p>
         <p>Content in the stored input: {{ storedInputContent }}</p>
-        <form v-on:submit.prevent="handleSubmit">
+        <form @submit.prevent="handleSubmit">
             <button>Submit</button>
         </form>
-        <button v-on:click="reset" style="margin:1rem">Reset</button>
+        <button @click="reset" style="margin:1rem">Reset</button>
 
     </section>
   </body>
