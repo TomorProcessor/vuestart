@@ -23,9 +23,14 @@
       <p v-bind:class="nameOfClass">{{ testFunc() }}</p>
         <button v-on:click='handleCounter("increase")'>Add</button>
         <button v-on:click='handleCounter("decrease")'>Reduce</button>
+        <button v-on:click.right='handleCounter("decrease")'>Reduce</button>
         <p>Result: {{ counter }}</p>
-        <input type="text" v-on:input="handleInput"/>
+        <input type="text" v-on:input="handleInput" v-on:keyup.enter="storeInput"/>
         <p>Content in the input: {{ inputContent }}</p>
+        <p>Content in the stored input: {{ storedInputContent }}</p>
+        <form v-on:submit.prevent="handleSubmit">
+            <button>Submit</button>
+        </form>
 
     </section>
   </body>

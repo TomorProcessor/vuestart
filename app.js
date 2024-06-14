@@ -5,7 +5,8 @@ const app = Vue.createApp({
             nameOfClass: 'nameOfClass',
             valueForTestFunc: 'testFunc result value',
             counter: 0,
-            inputContent: ''
+            inputContent: '',
+            storedInputContent: ''
         };
     },
     methods: {
@@ -28,6 +29,12 @@ const app = Vue.createApp({
         },
         handleInput(event) {
             this.inputContent = event.target.value;
+        },
+        handleSubmit() {
+            console.log('handleSubmit called');
+        },
+        storeInput() {
+            this.storedInputContent = this.inputContent;
         }
     }
 });
