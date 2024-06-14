@@ -26,7 +26,7 @@
         <button v-on:click.right='handleCounter("decrease")'>Reduce</button>
         <p v-once>Initial value: {{ counter }}</p>
         <p>Result: {{ counter }}</p>
-        <input type="text" v-bind:value="inputContent" v-on:input="handleInput" v-on:keyup.enter="storeInput"/>
+        <input type="text" v-model="inputContent" v-on:keyup.enter="storeInput"/>
         <p>Content in the input: {{ inputContent }}</p>
         <p>Content in the stored input: {{ storedInputContent }}</p>
         <form v-on:submit.prevent="handleSubmit">
