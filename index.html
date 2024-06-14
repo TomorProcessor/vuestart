@@ -21,8 +21,8 @@
       <h2>{{ testValue }}</h2>
 <!--    value binding    -->
       <p v-bind:class="nameOfClass">{{ testFunc() }}</p>
-        <button v-on:click="counter++">Add</button>
-        <button v-on:click="counter--">Reduce</button>
+        <button v-on:click="add">Add</button>
+        <button v-on:click="sub">Reduce</button>
         <p>Result: {{ counter }}</p>
     </section>
   </body>

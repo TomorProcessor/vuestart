@@ -14,6 +14,12 @@ const app = Vue.createApp({
              * osztályváltozói közé
              */
             return this.valueForTestFunc;
+        },
+        add() {
+            this.counter++;
+        },
+        sub() {
+            this.counter--;
         }
     }
 });
