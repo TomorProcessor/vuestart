@@ -9,6 +9,11 @@ const app = Vue.createApp({
             storedInputContent: ''
         };
     },
+    computed: {
+        counterInBinary() {
+            return this.counter.toString(2);
+        }
+    },
     methods: {
         testFunc() {
             /**
