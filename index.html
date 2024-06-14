@@ -24,6 +24,9 @@
         <button v-on:click='handleCounter("increase")'>Add</button>
         <button v-on:click='handleCounter("decrease")'>Reduce</button>
         <p>Result: {{ counter }}</p>
+        <input type="text" v-on:input="handleInput"/>
+        <p>Content in the input: {{ inputContent }}</p>
+
     </section>
   </body>
 </html>

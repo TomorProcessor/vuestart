@@ -4,7 +4,8 @@ const app = Vue.createApp({
             testValue: 'testValue',
             nameOfClass: 'nameOfClass',
             valueForTestFunc: 'testFunc result value',
-            counter: 0
+            counter: 0,
+            inputContent: ''
         };
     },
     methods: {
@@ -24,6 +25,9 @@ const app = Vue.createApp({
         handleCounter(action) {
             if (action === 'increase') this.counter++;
             if (action === 'decrease') this.counter--;
+        },
+        handleInput(event) {
+            this.inputContent = event.target.value;
         }
     }
 });
