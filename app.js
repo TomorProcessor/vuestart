@@ -20,6 +20,10 @@ const app = Vue.createApp({
         },
         sub() {
             this.counter--;
+        },
+        handleCounter(action) {
+            if (action === 'increase') this.counter++;
+            if (action === 'decrease') this.counter--;
         }
     }
 });
