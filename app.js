@@ -2,12 +2,17 @@ const app = Vue.createApp({
     data() {
         return {
             testValue: 'testValue',
-            nameOfClass: 'nameOfClass'
+            nameOfClass: 'nameOfClass',
+            valueForTestFunc: 'testFunc result value'
         };
     },
     methods: {
         testFunc() {
-            return 'testFunc result value';
+            /**
+             * a Vue a data-ban lévő tagok-kat kirakja a saját
+             * osztályváltozói közé
+             */
+            return this.valueForTestFunc;
         }
     }
 });
