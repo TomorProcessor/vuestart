@@ -17,10 +17,13 @@
       <h1>Vue Course Goals</h1>
     </header>
     <section id="user-goal">
-<!--    {} csak nyitó/záró html tag-ek között működik    -->
+<!--    {} csak nyitó/záró html tag-ek között működik, interpolation    -->
       <h2>{{ testValue }}</h2>
 <!--    value binding    -->
       <p v-bind:class="nameOfClass">{{ testFunc() }}</p>
+        <button v-on:click="counter++">Add</button>
+        <button v-on:click="counter--">Reduce</button>
+        <p>Result: {{ counter }}</p>
     </section>
   </body>
 </html>

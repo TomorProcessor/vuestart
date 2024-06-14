@@ -3,7 +3,8 @@ const app = Vue.createApp({
         return {
             testValue: 'testValue',
             nameOfClass: 'nameOfClass',
-            valueForTestFunc: 'testFunc result value'
+            valueForTestFunc: 'testFunc result value',
+            counter: 0
         };
     },
     methods: {
