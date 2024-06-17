@@ -73,6 +73,9 @@ const app = Vue.createApp({
             let borderColor = '#ccc';
             if (boxLetter === this.selectedBox) borderColor = 'red';
             return {borderColor: borderColor };
+        },
+        boxIsSelected(boxLetter) {
+            return boxLetter === this.selectedBox;
         }
     }
 });

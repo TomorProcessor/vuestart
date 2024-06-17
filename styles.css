@@ -91,3 +91,7 @@ header {
   margin: 16px;
   border: 2px dashed #ccc;
 }
+
+.selectedBox {
+  border-color: red;
+}

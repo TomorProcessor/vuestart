@@ -36,9 +36,10 @@
         <button @click="reset" style="margin:1rem">Reset</button>
 
         <section id="styling">
-            <div class="demo" @click="selectBox('A')" :style="updateStyle('A')"></div>
-            <div class="demo" @click="selectBox('B')" :style="updateStyle('B')"></div>
-            <div class="demo" @click="selectBox('C')" :style="updateStyle('C')"></div>
+            <!--     a demo class alapból fixen rajta lesz, a selectedBox class akkor, ha boxIsSelected true-t ad vissza       -->
+            <div class="demo" :class="{selectedBox: boxIsSelected('A')}" @click="selectBox('A')"></div>
+            <div class="demo" :class="{selectedBox: boxIsSelected('B')}" @click="selectBox('B')"></div>
+            <div class="demo" :class="{selectedBox: boxIsSelected('C')}" @click="selectBox('C')"></div>
         </section>
 
     </section>
