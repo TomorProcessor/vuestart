@@ -7,7 +7,9 @@ const app = Vue.createApp({
             counter: 0,
             inputContent: '',
             storedInputContent: '',
-            selectedBox: ''
+            selectedBox: '',
+            list: [],
+            enteredListItem: ''
         };
     },
     /**
@@ -76,6 +78,21 @@ const app = Vue.createApp({
         },
         boxIsSelected(boxLetter) {
             return boxLetter === this.selectedBox;
+        },
+        addToList() {
+            this.list.push(this.enteredListItem);
+        },
+        removeFromList(index) {
+            this.list.splice(index, 1);
+        },
+        generateRandomString(length = 10) {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let result = '';
+            const charactersLength = characters.length;
+            for (let i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }
+            return result;
         }
     }
 });

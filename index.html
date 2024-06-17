@@ -43,6 +43,27 @@
             <div :class="['demo', {selectedBox: boxIsSelected('C')}]" @click="selectBox('C')"></div>
         </section>
 
+        <section>
+            <input type="text" v-model="enteredListItem"/>
+            <button @click="addToList">Add text to list</button>
+            <!--      v-if: az ezzel elátott tag-ek nem lesznek részei a dom fának
+                    ha a feltétel nem teljesül, v-show: az ezzel elátott tag-ek mindig
+                    fixen részei a dom fának, ha nem teljesül a feltétel, akkor
+                    dislay:none-t tesz rá, nem tartozhat hozzá else
+                  -->
+            <p v-if="list.length === 0">List is empty</p>
+            <!--    else: közvetlen az if után kell jönnie, nem lehet köztük más tag        -->
+            <ul v-else>
+                <!--
+                    json esetében is működik (value, key) kell olyankor
+                    key: mivel a vue, mint a react újrahasznosíjta a dom elemeket, így azok tartalma
+                    beragadhat, amikor pl. egy lista változik, emiatt érdemes key-t használni,
+                    így egyéertelműen meg fogja tudni különböztetni a dom elemeket
+                    -->
+                <li v-for="(listItem, index) in list" @click="removeFromList(index)" :key="generateRandomString">{{ listItem }}</li>
+            </ul>
+        </section>
+
     </section>
   </body>
 </html>
