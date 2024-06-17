@@ -1,8 +1,13 @@
 <template>
   <section>
     <h2>Friend data</h2>
-    <friend-content></friend-content>
-    <friend-content></friend-content>
+    <!--  itt a props kötelezően kebab-case, ebből konvertál camelCase-t komponens oldalon a vue  -->
+    <friend-content name="John Doe" phone-number="+1234567890" email-address="john.doe@example.com"></friend-content>
+    <friend-content name="Jane Smith" phone-number="+1987654321" email-address="jane.smith@example.com"></friend-content>
+    <friend-content name="Alice Johnson" phone-number="+1123456789" email-address="alice.johnson@example.com"></friend-content>
+    <friend-content name="Bob Brown" phone-number="+1098765432" email-address="bob.brown@example.com"></friend-content>
+    <friend-content name="Charlie Davis" phone-number="+1012345678" email-address="charlie.davis@example.com"></friend-content>
+
   </section>
 </template>
 

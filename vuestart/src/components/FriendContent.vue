@@ -1,14 +1,15 @@
 <script>
+
 export default {
+  // itt a props kötelezően camelCase, erre konvertálja a html oldalon lévő kebab-case neveket a vue
+  props: [
+    'name',
+    'phoneNumber',
+    'emailAddress'
+  ],
   data() {
     return {
       detailsAreVisible: false,
-      friend: {
-        id: 1,
-        name: "John Doe",
-        phone: "+1234567890",
-        email: "john.doe@example.com"
-      }
     }
   },
   methods: {
@@ -21,11 +22,11 @@ export default {
 
 <template>
   <li>
-    <h2>{{ friend.name }}</h2>
+    <h2>{{ name }}</h2>
     <button @click="toggleDetails">Show Details</button>
     <ul v-if="detailsAreVisible">
-      <li><strong>Phone:</strong>{{ friend.phone }}</li>
-      <li><strong>Email:</strong>{{ friend.email }}</li>
+      <li><strong>Phone:</strong>{{ phoneNumber }}</li>
+      <li><strong>Email:</strong>{{ emailAddress }}</li>
     </ul>
   </li>
 </template>
