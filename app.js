@@ -6,7 +6,8 @@ const app = Vue.createApp({
             valueForTestFunc: 'testFunc result value',
             counter: 0,
             inputContent: '',
-            storedInputContent: ''
+            storedInputContent: '',
+            selectedBox: ''
         };
     },
     /**
@@ -64,6 +65,14 @@ const app = Vue.createApp({
             this.counter = 0;
             this.inputContent = '';
             this.storedInputContent = '';
+        },
+        selectBox(boxLetter) {
+            this.selectedBox = boxLetter;
+        },
+        updateStyle(boxLetter) {
+            let borderColor = '#ccc';
+            if (boxLetter === this.selectedBox) borderColor = 'red';
+            return {borderColor: borderColor };
         }
     }
 });

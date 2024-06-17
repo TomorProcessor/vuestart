@@ -35,6 +35,12 @@
         </form>
         <button @click="reset" style="margin:1rem">Reset</button>
 
+        <section id="styling">
+            <div class="demo" @click="selectBox('A')" :style="updateStyle('A')"></div>
+            <div class="demo" @click="selectBox('B')" :style="updateStyle('B')"></div>
+            <div class="demo" @click="selectBox('C')" :style="updateStyle('C')"></div>
+        </section>
+
     </section>
   </body>
 </html>
