@@ -2,12 +2,42 @@
 
 export default {
   // itt a props kötelezően camelCase, erre konvertálja a html oldalon lévő kebab-case neveket a vue
-  props: [
-    'name',
-    'phoneNumber',
-    'emailAddress',
-    'isFavourite'
-  ],
+  // props: [
+  //   'name',
+  //   'phoneNumber',
+  //   'emailAddress',
+  //   'isFavourite'
+  // ],
+  //ha validálni kell
+  props: {
+    name: {
+      type: String,
+      required: true
+    },
+    phoneNumber: {
+      type: String,
+      required: true,
+      validator: function (value) {
+        const regex = /^\+\d{10}$/;
+        return regex.test(value);
+      }
+    },
+    emailAddress: {
+      type: String,
+      required: true,
+      validator: function (value) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(value);
+      }
+    },
+    isFavourite: {
+      type: String,
+      default: '0',
+      validator: function (value) {
+        return value === '0' || value === '1';
+      }
+    }
+  },
   data() {
     return {
       detailsAreVisible: false,
