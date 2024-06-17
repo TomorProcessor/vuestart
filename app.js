@@ -57,6 +57,9 @@ const app = Vue.createApp({
         handleInput(event) {
             this.inputContent = event.target.value;
         },
+        setInputContent() {
+          this.inputContent = this.$refs.inputText.value;
+        },
         handleSubmit() {
             console.log('handleSubmit called');
         },

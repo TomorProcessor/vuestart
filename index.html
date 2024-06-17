@@ -27,9 +27,10 @@
         <p v-once>Initial value: {{ counter }}</p>
         <p>Result: {{ counter }}</p>
         <p>Result in binary: {{ counterInBinary }}</p>
-        <input type="text" v-model="inputContent" @keyup.enter="storeInput"/>
+        <input type="text" ref="inputText" @keyup.enter="storeInput"/>
+        <button @click="setInputContent">Set text</button>
         <p>Content in the input: {{ inputContent }}</p>
-        <p>Content in the stored input: {{ storedInputContent }}</p>
+<!--        <p>Content in the stored input: {{ storedInputContent }}</p>-->
         <form @submit.prevent="handleSubmit">
             <button>Submit</button>
         </form>
