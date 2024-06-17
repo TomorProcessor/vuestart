@@ -1,4 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import FriendContent from "@/components/FriendContent.vue";
 
-createApp(App).mount('#app')
+const app = createApp(App);
+app.component('friend-content', FriendContent)
+app.mount('#app');
