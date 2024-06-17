@@ -2,23 +2,63 @@
   <section>
     <h2>Friend data</h2>
     <!--  itt a props kötelezően kebab-case, ebből konvertál camelCase-t komponens oldalon a vue  -->
-    <friend-content name="John Doe" phone-number="+1234567890" email-address="john.doe@example.com" is-favourite="1"></friend-content>
-    <friend-content name="Jane Smith" phone-number="+1987654321" email-address="jane.smith@example.com"></friend-content>
-    <friend-content name="Alice Johnson" phone-number="+1123456789" email-address="alice.johnson@example.com" is-favourite="1"></friend-content>
-    <friend-content name="Bob Brown" phone-number="+1098765432" email-address="bob.brown@example.com" is-favourite="1"></friend-content>
-    <friend-content name="Charlie Davis" phone-number="+1012345678" email-address="charlie.davis@example.com"></friend-content>
-
+    <friend-content
+        v-for="friend in friends"
+        :key="friend.id"
+        :name="friend.name"
+        :phone-number="friend.phone"
+        :email-address="friend.email"
+        :is-favourite="friend.isFavourite">
+    </friend-content>
   </section>
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+      friends: [
+        {
+          id: "johnDoe",
+          name: "John Doe",
+          phone: "+1234567890",
+          email: "john.doe@example.com",
+          isFavourite: true
+        },
+        {
+          id: "janeSmith",
+          name: "Jane Smith",
+          phone: "+1987654321",
+          email: "jane.smith@example.com",
+          isFavourite: false
+        },
+        {
+          id: "aliceJohnson",
+          name: "Alice Johnson",
+          phone: "+1123456789",
+          email: "alice.johnson@example.com",
+          isFavourite: true
+        },
+        {
+          id: "bobBrown",
+          name: "Bob Brown",
+          phone: "+1098765432",
+          email: "bob.brown@example.com",
+          isFavourite: true
+        },
+        {
+          id: "charlieDavis",
+          name: "Charlie Davis",
+          phone: "+1012345678",
+          email: "charlie.davis@example.com",
+          isFavourite: false
+        }
+      ]
 
-import {defineComponent} from "vue";
-import FriendContent from "@/components/FriendContent.vue";
+    };
+  },
+};
 
-export default defineComponent({
-  components: {FriendContent}
-})
 </script>
 
 <style>

@@ -31,18 +31,15 @@ export default {
       }
     },
     isFavourite: {
-      type: String,
-      default: '0',
-      validator: function (value) {
-        return value === '0' || value === '1';
-      }
+      type: Boolean,
+      default: false,
     }
   },
   data() {
     return {
       detailsAreVisible: false,
       // közvetlenül kapott prop változót nem lehet módosítani, ezért ki kell menteni, és azt változtatni
-      isFavouriteInner: this.isFavourite === '1'
+      isFavouriteInner: this.isFavourite
     }
   },
   methods: {
