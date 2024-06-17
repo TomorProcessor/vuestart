@@ -96,7 +96,34 @@ const app = Vue.createApp({
                 result += characters.charAt(Math.floor(Math.random() * charactersLength));
             }
             return result;
+        },
+        destroy() {
+            app.unmount();
         }
+    },
+    beforeCreate() {
+        console.log('beforeCreate');
+    },
+    created() {
+        console.log('created');
+    },
+    beforeMount() {
+        console.log('beforeMount');
+    },
+    mounted() {
+        console.log('mounted');
+    },
+    beforeUpdate() {
+        console.log('beforeUpdate');
+    },
+    updated() {
+        console.log('updated');
+    },
+    beforeUnmount() {
+        console.log('beforeUnmount');
+    },
+    unmounted() {
+        console.log('unmounted');
     }
 });
 app.mount('#user-goal');

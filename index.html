@@ -64,7 +64,7 @@
                 <li v-for="(listItem, index) in list" @click="removeFromList(index)" :key="generateRandomString">{{ listItem }}</li>
             </ul>
         </section>
-
+        <button @click="destroy">DESTROY</button>
     </section>
   </body>
 </html>
