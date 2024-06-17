@@ -37,9 +37,10 @@
 
         <section id="styling">
             <!--     a demo class alapból fixen rajta lesz, a selectedBox class akkor, ha boxIsSelected true-t ad vissza       -->
-            <div class="demo" :class="{selectedBox: boxIsSelected('A')}" @click="selectBox('A')"></div>
-            <div class="demo" :class="{selectedBox: boxIsSelected('B')}" @click="selectBox('B')"></div>
-            <div class="demo" :class="{selectedBox: boxIsSelected('C')}" @click="selectBox('C')"></div>
+            <!--     array syntax       -->
+            <div :class="['demo', {selectedBox: boxIsSelected('A')}]" @click="selectBox('A')"></div>
+            <div :class="['demo', {selectedBox: boxIsSelected('B')}]" @click="selectBox('B')"></div>
+            <div :class="['demo', {selectedBox: boxIsSelected('C')}]" @click="selectBox('C')"></div>
         </section>
 
     </section>
