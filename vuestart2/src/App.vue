@@ -3,9 +3,9 @@
     <the-header></the-header>
     <badge-list></badge-list>
     <user-info
-      :full-name="activeUser.name"
-      :info-text="activeUser.description"
-      :role="activeUser.role"
+        :full-name="activeUser.name"
+        :info-text="activeUser.description"
+        :role="activeUser.role"
     ></user-info>
     <test-lister>
       <template v-slot:default="slotProps">
@@ -14,9 +14,12 @@
     </test-lister>
     <button @click="setSelectedTestComponent('test-a')">Test A</button>
     <button @click="setSelectedTestComponent('test-b')">Test B</button>
-    <!--  azt a komponenst rendereli ki, aminek a neve megfelel a selectedTestComponent változóban lévőnek -->
-    <!--  amennyiben fontos a dom elemek cache-elése, akkor keep-alive tag-ek közé kell tenni  -->
-    <component :is="selectedTestComponent"></component>
+    <!--  a teleporton belül lévő elemek a to-ban megadott szelektorral elátobb elemre lesznek renderelve (append-elve)  -->
+    <teleport to="body">
+      <!--  azt a komponenst rendereli ki, aminek a neve megfelel a selectedTestComponent változóban lévőnek -->
+      <!--  amennyiben fontos a dom elemek cache-elése, akkor keep-alive tag-ek közé kell tenni  -->
+      <component :is="selectedTestComponent"></component>
+    </teleport>
   </div>
 </template>
 
