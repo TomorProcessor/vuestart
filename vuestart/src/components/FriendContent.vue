@@ -57,6 +57,9 @@ export default {
     toggleFavourite() {
       //kötelezően kebab-case
       this.$emit("toggle-favourite", this.id);
+    },
+    deleteFriend() {
+      this.$emit("delete-friend", this.id);
     }
   }
 }
@@ -67,6 +70,7 @@ export default {
     <h2>{{ name + (this.isFavourite ? ' (Favourite)' : '') }}</h2>
     <button @click="toggleDetails">Show Details</button>
     <button @click="toggleFavourite">Toggle favourite</button>
+    <button @click="deleteFriend">Delete</button>
     <ul v-if="detailsAreVisible">
       <li><strong>Phone:</strong>{{ phoneNumber }}</li>
       <li><strong>Email:</strong>{{ emailAddress }}</li>

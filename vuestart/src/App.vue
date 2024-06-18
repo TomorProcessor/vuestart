@@ -14,6 +14,7 @@
         :email-address="friend.email"
         :is-favourite="friend.isFavourite"
         @toggle-favourite="toggleFavourite"
+        @delete-friend="deleteFriend"
     >
     </friend-content>
   </section>
@@ -86,6 +87,14 @@ export default {
         isFavourite: false
       }
       this.friends.push(newFriend);
+    },
+    deleteFriend(id) {
+      const foundFriend = this.friends.find(f => f.id === id);
+      if (foundFriend.isFavourite) {
+        alert('Favourite cannot be deleted!');
+      } else {
+        this.friends = this.friends.filter(friend => friend.id !== id);
+      }
     }
   }
 };
