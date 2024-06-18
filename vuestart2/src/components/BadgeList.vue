@@ -1,14 +1,16 @@
 <template>
   <section>
-    <h2>Available Badges</h2>
-    <ul>
-      <li>
-        <base-badge type="admin" caption="ADMIN"></base-badge>
-      </li>
-      <li>
-        <base-badge type="author" caption="AUTHOR"></base-badge>
-      </li>
-    </ul>
+    <base-card>
+      <h2>Available Badges</h2>
+      <ul>
+        <li>
+          <base-badge type="admin" caption="ADMIN"></base-badge>
+        </li>
+        <li>
+          <base-badge type="author" caption="AUTHOR"></base-badge>
+        </li>
+      </ul>
+    </base-card>
   </section>
 </template>
 
@@ -17,6 +19,7 @@ section h2 {
   margin: 0.5rem 0;
   color: #3a3a3a;
 }
+
 ul {
   list-style: none;
   margin: 0;
@@ -29,3 +32,5 @@ li {
   margin-right: 1rem;
 }
 </style>
+<script setup lang="ts">
+</script>
