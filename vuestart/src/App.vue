@@ -1,5 +1,8 @@
 <template>
   <section>
+    <new-friend @new-friend="newFriend"></new-friend>
+  </section>
+  <section>
     <h2>Friend data</h2>
     <!--  itt a props kötelezően kebab-case, ebből konvertál camelCase-t komponens oldalon a vue  -->
     <friend-content
@@ -10,7 +13,8 @@
         :phone-number="friend.phone"
         :email-address="friend.email"
         :is-favourite="friend.isFavourite"
-        @toggle-favourite="toggleFavourite">
+        @toggle-favourite="toggleFavourite"
+    >
     </friend-content>
   </section>
 </template>
@@ -63,6 +67,25 @@ export default {
     toggleFavourite(id) {
       const foundFriend = this.friends.find(f => f.id === id);
       foundFriend.isFavourite = !foundFriend.isFavourite;
+    },
+    generateRandomString(length = 10) {
+      const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      let result = '';
+      const charactersLength = characters.length;
+      for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+      return result;
+    },
+    newFriend(name, phone, email) {
+      const newFriend = {
+        id: this.generateRandomString(),
+        name: name,
+        phone: phone,
+        email: email,
+        isFavourite: false
+      }
+      this.friends.push(newFriend);
     }
   }
 };
