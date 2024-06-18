@@ -10,6 +10,10 @@ export default {
   // ],
   //ha validálni kell
   props: {
+    id: {
+      type: String,
+      required: true
+    },
     name: {
       type: String,
       required: true
@@ -37,9 +41,7 @@ export default {
   },
   data() {
     return {
-      detailsAreVisible: false,
-      // közvetlenül kapott prop változót nem lehet módosítani, ezért ki kell menteni, és azt változtatni
-      isFavouriteInner: this.isFavourite
+      detailsAreVisible: false
     }
   },
   methods: {
@@ -47,7 +49,8 @@ export default {
       this.detailsAreVisible = !this.detailsAreVisible
     },
     toggleFavourite() {
-      this.isFavouriteInner = !this.isFavouriteInner;
+      //kötelezően kebab-case
+      this.$emit("toggle-favourite", this.id);
     }
   }
 }
@@ -55,7 +58,7 @@ export default {
 
 <template>
   <li>
-    <h2>{{ name + (this.isFavouriteInner ? ' (Favourite)' : '') }}</h2>
+    <h2>{{ name + (this.isFavourite ? ' (Favourite)' : '') }}</h2>
     <button @click="toggleDetails">Show Details</button>
     <button @click="toggleFavourite">Toggle favourite</button>
     <ul v-if="detailsAreVisible">

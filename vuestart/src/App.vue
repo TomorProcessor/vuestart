@@ -5,10 +5,12 @@
     <friend-content
         v-for="friend in friends"
         :key="friend.id"
+        :id="friend.id"
         :name="friend.name"
         :phone-number="friend.phone"
         :email-address="friend.email"
-        :is-favourite="friend.isFavourite">
+        :is-favourite="friend.isFavourite"
+        @toggle-favourite="toggleFavourite">
     </friend-content>
   </section>
 </template>
@@ -57,6 +59,12 @@ export default {
 
     };
   },
+  methods: {
+    toggleFavourite(id) {
+      const foundFriend = this.friends.find(f => f.id === id);
+      foundFriend.isFavourite = !foundFriend.isFavourite;
+    }
+  }
 };
 
 </script>
