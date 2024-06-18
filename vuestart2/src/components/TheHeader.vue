@@ -3,8 +3,12 @@
     <h1>More on Vue Components</h1>
   </header>
 </template>
-
-<style>
+<!--
+      ha scoped a style, akkor lokálissá válik,
+      ilyenkor csak a template-re lesz hatással,
+      semmi másra, gyerekeire se
+-->
+<style scoped>
   header {
     width: 100%;
     height: 5rem;
