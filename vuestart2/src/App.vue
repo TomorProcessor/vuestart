@@ -15,6 +15,7 @@
     <button @click="setSelectedTestComponent('test-a')">Test A</button>
     <button @click="setSelectedTestComponent('test-b')">Test B</button>
     <!--  azt a komponenst rendereli ki, aminek a neve megfelel a selectedTestComponent változóban lévőnek -->
+    <!--  amennyiben fontos a dom elemek cache-elése, akkor keep-alive tag-ek közé kell tenni  -->
     <component :is="selectedTestComponent"></component>
   </div>
 </template>
