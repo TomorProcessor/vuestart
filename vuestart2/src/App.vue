@@ -7,6 +7,11 @@
       :info-text="activeUser.description"
       :role="activeUser.role"
     ></user-info>
+    <test-lister>
+      <template v-slot:default="slotProps">
+        <p>{{ slotProps.item }}</p>
+      </template>
+    </test-lister>
   </div>
 </template>
 
@@ -14,6 +19,7 @@
 import TheHeader from './components/TheHeader.vue';
 import BadgeList from './components/BadgeList.vue';
 import UserInfo from './components/UserInfo.vue';
+import TestLister from "@/components/TestLister.vue";
 
 export default {
   //ilyen formában a komponens lokális
@@ -21,6 +27,7 @@ export default {
     'the-header': TheHeader,
     'badge-list': BadgeList,
     'user-info': UserInfo,
+    'test-lister': TestLister
   },
   data() {
     return {
