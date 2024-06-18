@@ -1,6 +1,12 @@
 <template>
   <div>
-    <header>
+    <!--
+          Ha nem adnak meg header nevű template-et,
+          akkor nem renderel header slot-ot. Nem okoz
+          hibát, ha nincs feltétel, olyankor üres header
+          tag lenne akkor, ha nem lenne header slot megadva
+      -->
+    <header v-if="$slots.header">
       <slot name="header"></slot>
     </header>
     <slot></slot>
