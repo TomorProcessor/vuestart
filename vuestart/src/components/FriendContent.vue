@@ -39,6 +39,12 @@ export default {
       default: false,
     }
   },
+  // emits: ["toggle-favourite"],
+  emits: {
+    'toggle-favourite': function(id) {
+      return id !== undefined;
+    }
+  },
   data() {
     return {
       detailsAreVisible: false
