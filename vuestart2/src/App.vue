@@ -12,6 +12,10 @@
         <p>{{ slotProps.item }}</p>
       </template>
     </test-lister>
+    <button @click="setSelectedTestComponent('test-a')">Test A</button>
+    <button @click="setSelectedTestComponent('test-b')">Test B</button>
+    <!--  azt a komponenst rendereli ki, aminek a neve megfelel a selectedTestComponent változóban lévőnek -->
+    <component :is="selectedTestComponent"></component>
   </div>
 </template>
 
@@ -20,6 +24,8 @@ import TheHeader from './components/TheHeader.vue';
 import BadgeList from './components/BadgeList.vue';
 import UserInfo from './components/UserInfo.vue';
 import TestLister from "@/components/TestLister.vue";
+import TestA from "@/components/TestA.vue";
+import TestB from "@/components/TestB.vue";
 
 export default {
   //ilyen formában a komponens lokális
@@ -27,7 +33,9 @@ export default {
     'the-header': TheHeader,
     'badge-list': BadgeList,
     'user-info': UserInfo,
-    'test-lister': TestLister
+    'test-lister': TestLister,
+    'test-a': TestA,
+    'test-b': TestB
   },
   data() {
     return {
@@ -36,8 +44,14 @@ export default {
         description: 'Site owner and admin',
         role: 'admin',
       },
+      selectedTestComponent: ''
     };
   },
+  methods: {
+    setSelectedTestComponent(compName) {
+      this.selectedTestComponent = compName;
+    }
+  }
 };
 </script>
 
