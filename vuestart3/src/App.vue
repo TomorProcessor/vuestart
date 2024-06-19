@@ -1,15 +1,18 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <UserView></UserView>
+  <ProductView></ProductView>
 </template>
 
 <script>
 import UserView from "@/components/UserView.vue";
+import ProductView from "@/components/ProductView.vue";
 
 export default {
   name: 'App',
   components: {
-    UserView
+    UserView,
+    ProductView
   }
 }
 </script>
