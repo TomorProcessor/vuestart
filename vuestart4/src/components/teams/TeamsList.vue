@@ -7,6 +7,7 @@
       :member-count="team.members.length"
     ></teams-item>
   </ul>
+  <button @click="goToUsers">Go to users</button>
 </template>
 
 <script>
@@ -17,6 +18,13 @@ export default {
     TeamsItem,
   },
   inject: ['teams'],
+  methods: {
+    goToUsers() {
+      this.$router.push('/users');
+      // this.$router.back();
+      // this.$router.forward();
+    }
+  }
 };
 </script>
 
