@@ -2,7 +2,8 @@
 export default {
   data() {
     return {
-      products: []
+      products: [],
+      error: null
     }
   },
   methods: {
@@ -16,6 +17,9 @@ export default {
         }
       }).then((data) => {
         this.products = data;
+        this.error = null;
+      }).catch((error) => {
+        this.error = error;
       });
     }
   }
@@ -24,7 +28,8 @@ export default {
 
 <template>
   <button @click="loadProducts">Load Products</button>
-  <ul>
+  <p v-if="error" style="color:red;font-weight: bold">Error getting data!</p>
+  <ul v-else>
     <li v-for="product in products" :key="product.id">
       {{ product.name }}
     </li>
