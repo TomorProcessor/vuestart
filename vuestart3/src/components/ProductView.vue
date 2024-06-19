@@ -1,5 +1,10 @@
 <script>
 export default {
+  data() {
+    return {
+      products: []
+    }
+  },
   methods: {
     //test backend: https://github.com/TomorProcessor/laraveltest
     loadProducts() {
@@ -10,7 +15,7 @@ export default {
           return response.json();
         }
       }).then((data) => {
-        console.log(data);
+        this.products = data;
       });
     }
   }
@@ -19,6 +24,11 @@ export default {
 
 <template>
   <button @click="loadProducts">Load Products</button>
+  <ul>
+    <li v-for="product in products" :key="product.id">
+      {{ product.name }}
+    </li>
+  </ul>
 </template>
 
 <style scoped>
