@@ -42,6 +42,12 @@ const router = createRouter({
         return {left: 0, top: 0 };
     }
 });
+router.beforeEach((to, from, next) => {
+    console.log(from,to);
+    next(); //ilyenkor nem gátol egy route-ot se
+    // next(false); ilyenkor egy route-ot se enged
+    // next({name: 'team-members', params: {teamId: 't2'}}); ilyenkor fixen ide redirect-el
+})
 const app = createApp(App)
 app.use(router)
 app.mount('#app');
