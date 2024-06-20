@@ -30,7 +30,17 @@ const router = createRouter({
         {
             path: '/:notFound(.*)', component: NotFound
         }
-    ]
+    ],
+    scrollBehavior(to, from, savedPosition) {
+        console.log('to', to, 'from', from, 'savedPosition', savedPosition);
+        /**
+         * saved position: alapból undefined, egyébként az előbbi route srcoll állapotát tartalmazza (left és top)
+         * Az itt visszaadott object-tel lehet befolyásolni, hogy az egyes route-okra érkezve hova scroll-lozzon
+         * a böngésző
+         */
+        if (savedPosition) return savedPosition;
+        return {left: 0, top: 0 };
+    }
 });
 const app = createApp(App)
 app.use(router)
