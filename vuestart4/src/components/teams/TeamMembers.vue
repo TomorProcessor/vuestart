@@ -11,6 +11,7 @@
     </ul>
     <router-link to="/teams/t2">Goto team 2</router-link>
   </section>
+  <button v-if="!confirmed" @click="confirm">Press this to enable leave</button>
 </template>
 
 <script>
@@ -26,6 +27,7 @@ export default {
     return {
       teamName: 'Test',
       members: [],
+      confirmed: false
     };
   },
   methods: {
@@ -40,6 +42,9 @@ export default {
       }
       this.members = selectedMembers;
       this.teamName = selectedTeam.name;
+    },
+    confirm() {
+      this.confirmed = true;
     }
   },
   created() {
@@ -49,6 +54,15 @@ export default {
     $route() {
       console.log(this.$route.query.testKey);
       this.loadMembers(this.teamId);
+    }
+  },
+  beforeRouteLeave(to, from, next) {
+    console.log(to, from);
+    if (this.confirmed) {
+      next();
+    } else {
+      alert('you haven\'t confirmed');
+      next(false);
     }
   },
   //akkor hívódik, ha már létezik a komponens, és újra idejutnak egy route által, új adatokat kell megjelenítenie
