@@ -16,9 +16,9 @@ const router = createRouter({
         },
         {
             //ha itt alias van, akkor nincs url csere, sima /-nél is ez látszik
-            path: '/teams', component: TeamsList, /*alias: '/' */ children: [
+            name: 'teams', path: '/teams', component: TeamsList, /*alias: '/' */ children: [
                 {
-                    path: ':teamId', component: TeamMembers, props: true
+                    name: 'team-members', path: ':teamId', component: TeamMembers, props: true
                 }
             ]
         },
