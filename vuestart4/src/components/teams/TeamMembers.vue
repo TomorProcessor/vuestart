@@ -50,6 +50,16 @@ export default {
       console.log(this.$route.query.testKey);
       this.loadMembers(this.teamId);
     }
+  },
+  //akkor hívódik, ha már létezik a komponens, és újra idejutnak egy route által, új adatokat kell megjelenítenie
+  beforeRouteUpdate(to, from, next) {
+    console.log('teamMembers beforeRouteUpdate', to, from);
+    next();
+  },
+  //akkor hívódik, amikor egy route által létrejön a komponens
+  beforeRouteEnter(to, from, next) {
+    console.log('teamMembers beforeRouteEnter', to, from);
+    next();
   }
 };
 </script>
