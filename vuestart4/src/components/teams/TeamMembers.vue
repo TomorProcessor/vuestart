@@ -47,6 +47,7 @@ export default {
   },
   watch: {
     $route() {
+      console.log(this.$route.query.testKey);
       this.loadMembers(this.teamId);
     }
   }
