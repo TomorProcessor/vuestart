@@ -13,7 +13,7 @@
   <section class="container">
     <p>{{ computedUsersData }}</p>
   </section>
-  <test-comp :test-prop="testCompData"></test-comp>
+  <test-comp :test-prop="testCompData" @test-emit="testEmit"></test-comp>
 </template>
 
 <script setup>
@@ -56,6 +56,11 @@ watch(newUserRefs.userName, (newUserName, oldUserName) => {
   console.log('oldUserName',oldUserName);
   console.log('newUserName', newUserName);
 })
+
+function testEmit(data) {
+  console.log(data);
+}
+
 </script>
 
 <style>
