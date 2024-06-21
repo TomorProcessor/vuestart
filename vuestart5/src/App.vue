@@ -6,11 +6,15 @@
     <h2>{{ userObj.userName }}</h2>
     <p>{{ userObj.age }}</p>
   </section>
+  <section class="container">
+    <h2>{{ newUserRefs.userName }}</h2>
+    <p>{{ newUserRefs.age }}</p>
+  </section>
 </template>
 
 <script setup>
 
-import {ref, reactive} from "vue";
+import {ref, reactive, toRefs} from "vue";
 
 const userName = ref('Maximilian');
 
@@ -27,6 +31,14 @@ setTimeout(() => {
   userObj.userName = 'Max';
   userObj.age = 31;
 },3000);
+
+//új object, aminek a tagjai is reactive-ok
+const newUserRefs = toRefs(userObj);
+
+setTimeout(() => {
+  newUserRefs.userName.value = 'Max';
+  newUserRefs.age.value = 31;
+},4000);
 </script>
 
 <style>
