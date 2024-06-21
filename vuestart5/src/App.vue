@@ -6,7 +6,7 @@
     <h2>{{ userObj.userName }}</h2>
     <p>{{ userObj.age }}</p>
   </section>
-  <section class="container">
+  <section class="container asdasdasd">
     <h2>{{ newUserRefs.userName }}</h2>
     <p>{{ newUserRefs.age }}</p>
   </section>
@@ -23,7 +23,7 @@ setTimeout(() => {
 }, 2000);
 
 const userObj = reactive({
-  userName: 'Maximilian',
+  userName: 'Emily',
   age: 30
 });
 
@@ -36,8 +36,8 @@ setTimeout(() => {
 const newUserRefs = toRefs(userObj);
 
 setTimeout(() => {
-  newUserRefs.userName.value = 'Max';
-  newUserRefs.age.value = 31;
+  newUserRefs.userName = 'Max';
+  newUserRefs.age = 31;
 },4000);
 </script>
 
