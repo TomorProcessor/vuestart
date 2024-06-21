@@ -7,14 +7,17 @@
     <p>{{ userObj.age }}</p>
   </section>
   <section class="container asdasdasd">
-    <h2>{{ newUserRefs.userName }}</h2>
+    <h2>{{ newUserRefs.userName.value }}</h2>
     <p>{{ newUserRefs.age }}</p>
+  </section>
+  <section class="container">
+    <p>{{ computedUsersData }}</p>
   </section>
 </template>
 
 <script setup>
 
-import {ref, reactive, toRefs} from "vue";
+import {ref, reactive, toRefs, computed} from "vue";
 
 const userName = ref('Maximilian');
 
@@ -39,6 +42,10 @@ setTimeout(() => {
   newUserRefs.userName = 'Max';
   newUserRefs.age = 31;
 },4000);
+
+const computedUsersData = computed(() => {
+  return userName.value + ' ' + userObj.userName + ' ' + userObj.age + ' ' + newUserRefs.userName.value;
+})
 </script>
 
 <style>
