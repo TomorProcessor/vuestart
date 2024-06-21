@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <section class="container" ref="sectionRef">
     <h2>{{ userName }}</h2>
   </section>
   <section class="container">
@@ -20,6 +20,7 @@
 import {ref, reactive, toRefs, computed, watch} from "vue";
 
 const userName = ref('Maximilian');
+const sectionRef = ref(null);
 
 setTimeout(() => {
   userName.value = 'Max';
@@ -41,6 +42,7 @@ const newUserRefs = toRefs(userObj);
 setTimeout(() => {
   newUserRefs.userName = 'Max';
   newUserRefs.age = 31;
+  console.log(sectionRef.value);
 },4000);
 
 const computedUsersData = computed(() => {
