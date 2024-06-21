@@ -13,14 +13,17 @@
   <section class="container">
     <p>{{ computedUsersData }}</p>
   </section>
+  <test-comp :test-prop="testCompData"></test-comp>
 </template>
 
 <script setup>
 
 import {ref, reactive, toRefs, computed, watch} from "vue";
+import TestComp from "@/TestComp.vue";
 
 const userName = ref('Maximilian');
 const sectionRef = ref(null);
+const testCompData = 'this is the test';
 
 setTimeout(() => {
   userName.value = 'Max';
