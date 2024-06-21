@@ -17,7 +17,7 @@
 
 <script setup>
 
-import {ref, reactive, toRefs, computed} from "vue";
+import {ref, reactive, toRefs, computed, watch} from "vue";
 
 const userName = ref('Maximilian');
 
@@ -45,6 +45,11 @@ setTimeout(() => {
 
 const computedUsersData = computed(() => {
   return userName.value + ' ' + userObj.userName + ' ' + userObj.age + ' ' + newUserRefs.userName.value;
+})
+
+watch(newUserRefs.userName, (newUserName, oldUserName) => {
+  console.log('oldUserName',oldUserName);
+  console.log('newUserName', newUserName);
 })
 </script>
 
