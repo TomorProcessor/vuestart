@@ -1,15 +1,24 @@
 <script setup>
 import {useTaskStore} from "@/stores/TaskStore.js";
 import TaskItem from "@/components/TaskItem.vue";
+import {ref} from "vue";
 
 const store = useTaskStore();
+
+const favsOnly = ref(false);
+
+function toggleFav() {
+  favsOnly.value = !favsOnly.value
+}
 </script>
 
 <template>
   <header>
     <h2>Stored name: {{ store.name }}</h2>
+    <button @click="toggleFav">Change list</button>
   </header>
-  <TaskItem v-for="item in store.tasks" :key="item.id" :task="item" />
+  <TaskItem v-if="favsOnly" v-for="item in store.favs" :key="item.id" :task="item" />
+  <TaskItem v-else v-for="item in store.tasks" :key="item.id" :task="item" />
   <main>
 
   </main>
