@@ -17,8 +17,9 @@ function toggleFav() {
     <h2>Stored name: {{ store.name }}</h2>
     <button @click="toggleFav">Change list</button>
   </header>
-  <TaskItem v-if="favsOnly" v-for="item in store.favs" :key="item.id" :task="item" />
-  <TaskItem v-else v-for="item in store.tasks" :key="item.id" :task="item" />
+  <TaskItem v-if="favsOnly" v-for="item in store.favs" :key="'fav-' + item.id" :task="item" />
+  <TaskItem v-else v-for="item in store.tasks" :key="'task-' + item.id" :task="item" />
+
   <main>
 
   </main>
