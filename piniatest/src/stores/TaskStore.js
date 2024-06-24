@@ -13,6 +13,7 @@ export const useTaskStore = defineStore("taskStore", {
             { id: 8, title: "Learn a new language", isFav: false },
             { id: 9, title: "Watch a movie", isFav: false },
             { id: 10, title: "Take a walk", isFav: false }
-        ]
+        ],
+        name: 'Alison Young'
     })
 })

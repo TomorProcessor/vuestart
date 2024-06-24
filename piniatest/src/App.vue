@@ -1,19 +1,17 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import {useTaskStore} from "@/stores/TaskStore.js";
+import TaskItem from "@/components/TaskItem.vue";
+
+const store = useTaskStore();
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
+    <h2>Stored name: {{ store.name }}</h2>
   </header>
-
+  <TaskItem v-for="item in store.tasks" :key="item.id" :task="item" />
   <main>
-    <TheWelcome />
+
   </main>
 </template>
 
