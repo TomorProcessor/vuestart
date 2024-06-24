@@ -10,6 +10,9 @@ const favsOnly = ref(false);
 function toggleFav() {
   favsOnly.value = !favsOnly.value
 }
+function resetStore() {
+  store.$reset();
+}
 </script>
 
 <template>
@@ -19,7 +22,7 @@ function toggleFav() {
   </header>
   <TaskItem v-if="favsOnly" v-for="item in store.favs" :key="'fav-' + item.id" :task="item" />
   <TaskItem v-else v-for="item in store.tasks" :key="'task-' + item.id" :task="item" />
-
+  <button @click="resetStore">Reset store</button>
   <main>
 
   </main>
